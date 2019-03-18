@@ -30,6 +30,14 @@ describe("Testing TimeSet Data structure",()=>{
         ts.add(event2);
         expect(ts.getByTs(timeStamp).length).toBe(2);
     });
+    it(`Should remove from list`,()=>{
+       let ts = new TimeSet();
+       let e = new E("A",Date.now());
+       ts.add(e);
+       let tmpRemoved = ts.remove(e);
+       expect(ts.size()).toBe(0);
+       expect(e.equal(tmpRemoved)).toBeTruthy(); 
+    })
     it(`Should get actions by action hash`,()=>{
         let ts=new TimeSet();
         let timeStamp = Date.now();
