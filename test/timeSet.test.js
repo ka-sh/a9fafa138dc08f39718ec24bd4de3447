@@ -43,6 +43,6 @@ describe("Testing TimeSet Data structure",()=>{
         let timeStamp = Date.now();
         let event = new E("B",timeStamp);
         ts.add(event);
-        expect(ts.get(event.hash)).toBeDefined();
+        expect(ts.get(event.hash())).toBeDefined();
     });
 })
