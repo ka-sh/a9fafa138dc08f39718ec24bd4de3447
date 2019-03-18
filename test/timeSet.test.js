@@ -1,6 +1,12 @@
 /* eslint-disable no-console */
 let TimeSet = require('../lib/TimeSet');
 describe("Testing TimeSet Data structure",()=>{
+    
+    it(`Should not add invalid elements`,()=>{
+        let ts = new TimeSet();
+        expect(()=>{ts.add({});}).toThrow(`Invalid Element`);
+    });
+
     it('Should Add elements to timeset',()=>{
         let ts = new TimeSet();
         ts.add({v:"A",ts:Date.now,hash:"123"});
@@ -28,5 +34,5 @@ describe("Testing TimeSet Data structure",()=>{
         let event = {v:"B",ts:timeStamp,hash:"123"};
         ts.add(event);
         expect(ts.get(event.hash)).toBeDefined();
-    })
+    });
 })
